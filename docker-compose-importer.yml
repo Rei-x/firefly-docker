@@ -39,6 +39,8 @@ services:
       - firefly_iii
     depends_on:
       - app
+    ports:
+      - "5000:8080"
 
   cron:
     #
