@@ -1,0 +1,8 @@
+version: "3.3"
+
+services:
+  importer:
+    image: fireflyiii/data-importer:latest
+    hostname: importer
+    restart: always
+    container_name: importer
