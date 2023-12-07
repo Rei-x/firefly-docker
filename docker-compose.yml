@@ -36,9 +36,7 @@ services:
     networks:
       - firefly_iii
     volumes:
-      - type: bind
-        source: /home/ubuntu/firefly-config
-        target: /config
+      - /home/ubuntu/firefly-config:/config
     depends_on:
       - app
     ports:
