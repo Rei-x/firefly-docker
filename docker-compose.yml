@@ -107,8 +107,9 @@ services:
       - NORDIGEN_KEY
       - NORDIGEN_SANDBOX
       - IMPORT_DIR_ALLOWLIST
+      - VANITY_URL=http://localhost
     volumes:
-      - /home/rei/firefly-config:/config
+      - /home/rei/firefly-config:/home/config
     depends_on:
       - app
     ports:
