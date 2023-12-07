@@ -108,7 +108,7 @@ services:
       - NORDIGEN_SANDBOX
       - IMPORT_DIR_ALLOWLIST
     volumes:
-      - /home/ubuntu/firefly-config:/config
+      - /home/rei/firefly-config:/config
     depends_on:
       - app
     ports:
