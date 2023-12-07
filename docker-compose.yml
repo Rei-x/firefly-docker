@@ -108,6 +108,8 @@ services:
       - NORDIGEN_SANDBOX
       - IMPORT_DIR_ALLOWLIST
       - VANITY_URL=http://localhost
+    env_file:
+      - .importer.env
     volumes:
       - /home/rei/firefly-config:/home/config
     depends_on:
