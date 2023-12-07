@@ -36,7 +36,9 @@ services:
     networks:
       - firefly_iii
     volumes:
-      - /home/ubuntu/firefly-config:/config
+      - type: bind
+        source: /home/ubuntu/firefly-config
+        target: /config
     depends_on:
       - app
     ports:
@@ -49,6 +51,7 @@ services:
     command: sh -c "echo \"0 3 * * * wget -qO- http://app:8080/api/v1/cron/${STATIC_CRON_TOKEN}\" | crontab - && crond -f -L /dev/stdout"
     networks:
       - firefly_iii
+
 volumes:
   firefly_iii_upload:
   firefly_iii_db:
