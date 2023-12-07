@@ -11,8 +11,6 @@ services:
     image: fireflyiii/core:latest
     hostname: app
     container_name: firefly_iii_core
-    networks:
-      - firefly_iii
     restart: always
     environment:
       - ALLOW_WEBHOOKS
@@ -109,8 +107,6 @@ services:
       - NORDIGEN_KEY
       - NORDIGEN_SANDBOX
       - IMPORT_DIR_ALLOWLIST
-    networks:
-      - firefly_iii
     volumes:
       - /home/ubuntu/firefly-config:/config
     depends_on:
@@ -129,7 +125,3 @@ services:
 volumes:
   firefly_iii_upload:
   firefly_iii_db:
-
-networks:
-  firefly_iii:
-    driver: bridge
