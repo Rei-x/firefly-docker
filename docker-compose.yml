@@ -108,6 +108,7 @@ services:
       - NORDIGEN_SANDBOX
       - IMPORT_DIR_ALLOWLIST
       - VANITY_URL=http://localhost
+      - TRUSTED_PROXIES
     env_file:
       - .importer.env
     volumes:
