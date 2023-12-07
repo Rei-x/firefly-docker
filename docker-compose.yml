@@ -95,23 +95,6 @@ services:
       - firefly_iii_upload:/var/www/html/storage/upload
     depends_on:
       - db
-  db:
-    image: mysql
-    hostname: db
-    container_name: firefly_iii_db
-    environment:
-      - MYSQL_DATABASE
-      - MYSQL_PASSWORD
-      - MYSQL_RANDOM_ROOT_PASSWORD
-      - MYSQL_SSL_CAPATH
-      - MYSQL_SSL_VERIFY_SERVER_CERT
-      - MYSQL_USER
-      - MYSQL_USE_SSL
-    networks:
-      - firefly_iii
-    restart: always
-    volumes:
-      - firefly_iii_db:/var/lib/mysql
 
   importer:
     image: fireflyiii/data-importer:latest
