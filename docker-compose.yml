@@ -93,8 +93,6 @@ services:
       - VERIFY_TLS_SECURITY
     volumes:
       - firefly_iii_upload:/var/www/html/storage/upload
-    depends_on:
-      - db
 
   importer:
     image: fireflyiii/data-importer:latest
