@@ -14,14 +14,99 @@ services:
     networks:
       - firefly_iii
     restart: always
+    environment:
+      - ALLOW_WEBHOOKS
+      - APP_DEBUG
+      - APP_ENV
+      - APP_FORCE_SSL
+      - APP_KEY
+      - APP_LOG_LEVEL
+      - APP_NAME
+      - APP_URL
+      - AUDIT_LOG_LEVEL
+      - AUTHENTICATION_GUARD
+      - AUTHENTICATION_GUARD_HEADER
+      - BROADCAST_DRIVER
+      - CACHE_DRIVER
+      - CACHE_PREFIX
+      - CONNECTION_TIMEOUT
+      - COOKIE_PATH
+      - COOKIE_SAMESITE
+      - COOKIE_SECURE
+      - DB_CONNECTION
+      - DB_DATABASE
+      - DB_HOST
+      - DB_PASSWORD
+      - DB_PORT
+      - DB_USERNAME
+      - ENABLE_MAIL_REPORT
+      - EXPECT_SECURE_URL
+      - IGNORE_DUPLICATE_ERRORS
+      - IS_EXTERNAL
+      - LOG_CHANNEL
+      - LOG_LEVEL
+      - MAILGUN_DOMAIN
+      - MAILGUN_ENDPOINT
+      - MAILGUN_SECRET
+      - MAIL_DESTINATION
+      - MAIL_ENCRYPTION
+      - MAIL_FROM
+      - MAIL_FROM_ADDRESS
+      - MAIL_HOST
+      - MAIL_MAILER
+      - MAIL_PASSWORD
+      - MAIL_PORT
+      - MAIL_USERNAME
+      - MAP_DEFAULT_LAT
+      - MAP_DEFAULT_LONG
+      - MAP_DEFAULT_ZOOM
+      - MYSQL_DATABASE
+      - MYSQL_PASSWORD
+      - MYSQL_RANDOM_ROOT_PASSWORD
+      - MYSQL_SSL_CAPATH
+      - MYSQL_SSL_VERIFY_SERVER_CERT
+      - MYSQL_USER
+      - MYSQL_USE_SSL
+      - NODE_ENV
+      - PGSQL_SCHEMA
+      - PGSQL_SSL_CERT
+      - PGSQL_SSL_CRL_FILE
+      - PGSQL_SSL_KEY
+      - PGSQL_SSL_MODE
+      - PGSQL_SSL_ROOT_CERT
+      - QUEUE_CONNECTION
+      - QUEUE_DRIVER
+      - REDIS_CACHE_DB
+      - REDIS_DB
+      - REDIS_HOST
+      - REDIS_PASSWORD
+      - REDIS_PORT
+      - SEND_ERROR_MESSAGE
+      - SEND_REPORT_JOURNALS
+      - SESSION_DRIVER
+      - SESSION_LIFETIME
+      - SITE_OWNER
+      - STATIC_CRON_TOKEN
+      - TRUSTED_PROXIES
+      - TZ
+      - USE_CACHE
+      - VERIFY_TLS_SECURITY
     volumes:
       - firefly_iii_upload:/var/www/html/storage/upload
     depends_on:
       - db
   db:
-    image: mariadb
+    image: mysql
     hostname: db
     container_name: firefly_iii_db
+    environment:
+      - MYSQL_DATABASE
+      - MYSQL_PASSWORD
+      - MYSQL_RANDOM_ROOT_PASSWORD
+      - MYSQL_SSL_CAPATH
+      - MYSQL_SSL_VERIFY_SERVER_CERT
+      - MYSQL_USER
+      - MYSQL_USE_SSL
     networks:
       - firefly_iii
     restart: always
@@ -33,6 +118,16 @@ services:
     hostname: importer
     restart: always
     container_name: firefly_iii_importer
+    environment:
+      - FIREFLY_III_URL
+      - AUTO_IMPORT_SECRET
+      - FIREFLY_III_ACCESS_TOKEN
+      - CAN_POST_AUTOIMPORT
+      - CAN_POST_FILES
+      - NORDIGEN_ID
+      - NORDIGEN_KEY
+      - NORDIGEN_SANDBOX
+      - IMPORT_DIR_ALLOWLIST
     networks:
       - firefly_iii
     volumes:
