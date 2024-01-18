@@ -93,7 +93,7 @@ services:
       - firefly_iii_upload:/var/www/html/storage/upload
 
   importer:
-    image: fireflyiii/data-importer:latest
+    image: fireflyiii/data-importer:develop
     hostname: importer
     restart: always
     container_name: firefly_iii_importer
