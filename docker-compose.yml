@@ -111,6 +111,8 @@ services:
       - TRUSTED_PROXIES
     env_file:
       - .importer.env
+    labels:
+      - traefik.http.middlewares.authelia@file
     volumes:
       - /home/rei/firefly-config:/home/config
     depends_on:
